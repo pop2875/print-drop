@@ -13,8 +13,6 @@ fi
 
 cd "$(dirname "$0")"
 
-git pull --rebase
-
 cp "$1" files/
 echo "복사 완료: $(basename "$1")"
 
@@ -22,6 +20,7 @@ echo "복사 완료: $(basename "$1")"
 
 git add .
 git commit -m "파일 추가: $(basename "$1")"
+git pull --rebase
 git push
 
 echo ""
