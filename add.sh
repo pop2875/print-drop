@@ -13,6 +13,8 @@ fi
 
 cd "$(dirname "$0")"
 
+git pull --rebase
+
 cp "$1" files/
 echo "복사 완료: $(basename "$1")"
 
