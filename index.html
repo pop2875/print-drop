@@ -14,12 +14,7 @@
 </head>
 <body>
 
-<div id="lock">
-  <p>🔒 비밀번호를 입력해주세요</p>
-  <input type="password" id="pw" autocomplete="off" style="font-size:16px;padding:6px 10px;">
-  <button id="submitBtn" style="font-size:16px;padding:6px 14px;">확인</button>
-  <p id="errorMsg" style="color:#d33;display:none;">❌ 접근 권한이 없습니다.</p>
-</div>
+<div id="lock">🔒 비밀번호를 입력해주세요...</div>
 
 <div id="content" style="display:none;">
 <h1>📂 자료실</h1>
@@ -30,31 +25,20 @@
 <li><a href="files/입사지원서(90.05.07박형주).docx">입사지원서(90.05.07박형주).docx</a></li>
 <li><a href="files/입사지원서(90.05.07박형주).pdf">입사지원서(90.05.07박형주).pdf</a></li>
 <li><a href="files/프로그래밍기능사_기출문제_모음.docx">프로그래밍기능사_기출문제_모음.docx</a></li>
+<li><a href="files/프로그래밍기능사_파이썬_예상문제30선.pdf">프로그래밍기능사_파이썬_예상문제30선.pdf</a></li>
 </ul>
 </div>
 
 <script>
 (function() {
   var PASSWORD = "900507";
-  var pwInput = document.getElementById("pw");
-  var errorMsg = document.getElementById("errorMsg");
-
-  function tryUnlock() {
-    if (pwInput.value === PASSWORD) {
-      document.getElementById("lock").style.display = "none";
-      document.getElementById("content").style.display = "block";
-    } else {
-      errorMsg.style.display = "block";
-      pwInput.value = "";
-      pwInput.focus();
-    }
+  var input = prompt("비밀번호를 입력하세요:");
+  if (input === PASSWORD) {
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("content").style.display = "block";
+  } else {
+    document.getElementById("lock").innerText = "❌ 접근 권한이 없습니다.";
   }
-
-  document.getElementById("submitBtn").addEventListener("click", tryUnlock);
-  pwInput.addEventListener("keydown", function(e) {
-    if (e.key === "Enter") tryUnlock();
-  });
-  pwInput.focus();
 })();
 </script>
 
